@@ -1,5 +1,7 @@
-package com.arko
+package com.arko.config
 
+import com.arko.servlets.TimeServlet
+import com.arko.servlets.ZoneServlet
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletHandler
 import org.eclipse.jetty.servlet.ServletHolder
@@ -9,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-@ComponentScan
+@ComponentScan("com.arko")
 open class Configuration {
     @Autowired
     lateinit var timeServlet: TimeServlet
