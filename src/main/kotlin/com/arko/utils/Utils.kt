@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-fun timeFormater(cityTime: OffsetDateTime): String = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(cityTime)
+fun timeFormater(cityTime: OffsetDateTime): String = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm").format(cityTime)
 
 fun isValidTime(param: String?): String {
 
