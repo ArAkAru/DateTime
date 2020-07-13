@@ -11,7 +11,6 @@ fun isValidTime(param: String?): String {
 
     var count: String = "Incorrect UTC"
     if (param?.let { Regex("/UTC(\\-{1}|\\+{1})\\d{1,2}").matchEntire(it) } != null) {
-        println(param)
         var matcher: Matcher = Pattern.compile("(\\-{1}|\\+{1})\\d{1,2}").matcher(param)
         matcher.find();
         count = matcher.group()
