@@ -34,6 +34,15 @@ jar {
     }
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 }
+task runJar(type: JavaExec) {
+    main = "-jar";
+    args jar.archivePath
+}
+task setup(){
+    dependsOn("clean")
+    dependsOn("build")
+
+}
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
