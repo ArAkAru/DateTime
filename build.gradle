@@ -32,7 +32,7 @@ jar {
         attributes 'Main-Class': 'com.arko.StartServerKt'
 
     }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
 compileKotlin {

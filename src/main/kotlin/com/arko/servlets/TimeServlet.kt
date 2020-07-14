@@ -4,6 +4,7 @@ import com.arko.cities.Cities
 import com.arko.utils.timeFormater
 import freemarker.template.Configuration
 import freemarker.template.Template
+import org.eclipse.jetty.util.Loader.getResource
 import org.springframework.stereotype.Component
 import java.io.Writer
 import java.time.OffsetDateTime
