@@ -38,7 +38,7 @@ task runJar(type: JavaExec) {
     main = "-jar";
     args jar.archivePath
 }
-task setup(){
+task setup(dependsOn: 'runJar'){
     dependsOn("clean")
     dependsOn("build")
 
