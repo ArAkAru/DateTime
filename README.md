@@ -1,4 +1,7 @@
 # DateTime
+
+## ./gradlew clean build
+## ./gradlew runJar
 Отобразить дату и время для всех городов:
 http://localhost:9876/times
 
