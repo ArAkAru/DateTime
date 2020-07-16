@@ -1,6 +1,8 @@
 package com.arko.config
 
+import com.arko.servlets.InfoServlet
 import com.arko.servlets.TimeServlet
+import com.arko.servlets.UtcServlet
 import com.arko.servlets.ZoneServlet
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletHandler
@@ -19,6 +21,12 @@ open class Configuration {
     @Autowired
     lateinit var zoneServlet: ZoneServlet
 
+    @Autowired
+    lateinit var infoServlet: InfoServlet
+
+    @Autowired
+    lateinit var utcServlet: UtcServlet
+
     @Bean
     open fun server(): Server {
         var server: Server = Server(9876)
@@ -31,6 +39,8 @@ open class Configuration {
         val servletHandler: ServletHandler = ServletHandler()
         servletHandler.addServletWithMapping(ServletHolder(timeServlet), "/times")
         servletHandler.addServletWithMapping(ServletHolder(zoneServlet), "/times/*")
+        servletHandler.addServletWithMapping(ServletHolder(infoServlet), "/times/info/")
+        servletHandler.addServletWithMapping(ServletHolder(utcServlet), "/times/group")
         return servletHandler
     }
 }

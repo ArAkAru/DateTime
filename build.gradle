@@ -25,6 +25,8 @@ dependencies {
 // https://mvnrepository.com/artifact/org.freemarker/freemarker
     compile group: 'org.freemarker', name: 'freemarker', version: '2.3.23'
 
+    // https://mvnrepository.com/artifact/postgresql/postgresql
+    compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
 
 }
 jar {
@@ -34,11 +36,15 @@ jar {
     }
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 }
+
+
 task runJar(type: JavaExec) {
+
     main = "-jar";
     args jar.archivePath
 }
 task setup(dependsOn: 'runJar'){
+
     dependsOn("clean")
     dependsOn("build")
 
